@@ -1,0 +1,14 @@
+{
+  "name": "mac-speech-cache",
+  "version": "2019.5.22",
+  "description": "macOS speech cache",
+  "keywords": [
+    "speech",
+    "tts"
+  ],
+  "homepage": "https://github.com/looking-for-a-job/mac-speech-cache",
+  "license": "Unlicense",
+  "bin": {
+    "speech-cache": "./scripts/speech-cache"
+  }
+}

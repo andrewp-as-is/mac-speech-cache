@@ -14,9 +14,10 @@ usage() {
 
 shasum="$(echo "$@" | shasum -a 1 | awk '{print $1}')"
 dst=~/Library/Caches/speech-cache/"$shasum".aiff
-
-tmp="$(mktemp)" || exit
-! [ -e "${dst%/*}" ] && { mkdir -p "${dst%/*}" || exit; }
-/usr/bin/say "$@" -o "$tmp" || exit
-mv "$tmp" "$dst" || exit
+! [ -e "$dst" ] && {
+    tmp="$(mktemp)" || exit
+    ! [ -e "${dst%/*}" ] && { mkdir -p "${dst%/*}" || exit; }
+    /usr/bin/say "$@" -o "$tmp" || exit
+    mv "$tmp" "$dst" || exit
+}
 echo "$dst"
